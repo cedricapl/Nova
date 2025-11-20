@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Novobanco - Сіздің Қаржылық Болашағыңыз Жеңілдетілген</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Inter:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    /*
+    * ======================================
+    * NOUVELLES COULEURS CHARTE GRAPHIQUE NOVOBANCO
+    * Inspiré des affiches.
+    * ======================================
+    */
+
+    :root {
+      /* Couleur principale - Vert Teel foncé (dominant sur les affiches) */
+      --primary-color: #036666;
+      /* Couleur secondaire - Vert Teel plus clair pour le contraste */
+      --primary-subtle-color: #008787;
+      /* Couleur d'accent - Blanc cassé ou clair */
+      --secondary-color: #f3f3f3;
+      /* Fond très clair/blanc */
+      --light-bg: #f9f9f9;
+      /* Fond légèrement plus foncé si besoin */
+      --light-bg-alt: #E8E8E8;
+      /* Texte principal - Blanc/Clair sur le fond Vert */
+      --text-dark: #fcfcfc;
+      /* Texte clair - Noir/Gris foncé sur fond clair */
+      --text-light: #1a1a1a;
+      /* Texte muet/lien */
+      --text-muted: #999999;
+
+      /* Variables Bootstrap ajustées */
+      --bs-blue: var(--primary-color);
+      --bs-red: #F0756C;
+      /* Gardé pour les alertes/erreurs si besoin */
+      --bs-orange: #f9c32c;
+      --bs-yellow: #EFEAEA;
+      --bs-green: var(--primary-subtle-color);
+      --bs-teal: var(--primary-color);
+      --bs-cyan: #F3F3F3;
+      --bs-black: #111111;
+      --bs-white: #FFFFFF;
+      --bs-gray: #777777;
+
+      --bs-link-color: var(--primary-subtle-color);
+      --bs-link-color-rgb: 0, 135, 135;
+      --bs-link-hover-color: var(--primary-color);
+      --bs-link-hover-color-rgb: 3, 102, 102;
+
+      /* Police : Syne pour les gros titres, Inter pour le corps de texte */
+      --bs-font-sans-serif: 'Inter', sans-serif;
+    }
+
+    /* Styles de base */
+    body {
+      font-family: var(--bs-font-sans-serif);
+      line-height: 1.6;
+      color: var(--text-light);
+    }
+
+    /* On utilise la couleur primaire pour les sections et le background */
+    .bg-primary {
+      background-color: var(--primary-color) !important;
+    }
+
+    .text-dark-custom {
+      color: var(--text-dark) !important;
+    }
+
+    .text-light-custom {
+      color: var(--text-light) !important;
+    }
+
+    /* Styles spécifiques pour le nouveau template */
+    .hero-section {
+      background-color: var(--primary-color);
+      color: var(--text-dark);
+      /* Texte blanc sur fond vert */
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    .section-padding {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    /* Boutons CTA (Vert des affiches) */
+    .btn-custom {
+      background-color: var(--primary-subtle-color);
+      border-color: var(--primary-subtle-color);
+      color: var(--text-dark);
+      /* Texte blanc */
+      font-weight: 600;
+      padding: 10px 30px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      color: var(--text-dark);
+    }
+
+    /* Ajustement de la navbar */
+    .navbar-brand,
+    .nav-link {
+      color: var(--text-dark) !important;
+      /* Blanc */
+      font-weight: 600;
+    }
+
+    /* Les titres passent en Syne et en couleur primaire sur fond clair */
+    h1,
+    h2,
+    h3,
+    h4,
+    .display-1,
+    .display-2 {
+      font-family: 'Syne', sans-serif;
+      color: var(--primary-color);
+    }
+
+    /* Style de carte pour les sections d'info */
+    .info-card {
+      background-color: var(--light-bg);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Pied de page */
+    footer {
+      background-color: var(--primary-color);
+      /* Fond vert foncé */
+      color: var(--text-dark);
+      /* Texte blanc */
+    }
+
+    .footer-link {
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--secondary-color);
+      /* Accent plus clair au survol */
+    }
+
+    /* Ajout des images pour les sections */
+    .section-image {
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* Styles pour le bloc de taux d'intérêt */
+    .rate-block {
+      background-color: var(--primary-subtle-color);
+      color: var(--text-dark);
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .rate-text {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--secondary-color);
+      margin-bottom: 0;
+      line-height: 1;
+    }
+
+    /* Styles AOS (Initial states) */
+    /* AOS styles are kept for animation if you still use script.js */
+    [data-aos].aos-animate {
+      opacity: 1;
+      transform: none;
+    }
+
+    [data-aos="fade-up"] {
+      transform: translate3d(0, 100px, 0);
+      opacity: 0;
+    }
+
+    [data-aos="fade-left"] {
+      transform: translate3d(100px, 0, 0);
+      opacity: 0;
+    }
+
+    [data-aos="fade-right"] {
+      transform: translate3d(-100px, 0, 0);
+      opacity: 0;
+    }
+
+    /* Styles de texte reveal pour les titres */
+    [data-aos^="text-reveal"] {
+      overflow: hidden;
+    }
+
+    [data-aos="text-reveal-left"],
+    [data-aos="text-reveal-right"],
+    [data-aos="text-reveal-up"],
+    [data-aos="text-reveal-down"],
+    [data-aos="text-reveal-center"] {
+      clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+      opacity: 0;
+    }
+
+    [data-aos="text-reveal-left"].aos-animate {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      opacity: 1;
+    }
+
+    /* Adaptation des autres styles AOS si nécessaire, mais les essentiels sont là. */
+  </style>
+</head>
+
+
+<body>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    </svg>
+
+  <header class="position-absolute w-100 py-3" style="z-index: 10;">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand fs-4 text-dark-custom" href="index.html">
+          <span style="font-family: 'Syne', sans-serif; font-weight: 800;">novobanco</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav gap-4">
+            <li class="nav-item">
+              <a class="nav-link" href="#engagement">Міндеттемелер</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projets">Жобалар</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#credit">Ипотекалық Несие</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Байланыс</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section text-center position-relative overflow-hidden" style="min-height: 80vh;">
+      <div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+        <div class="row align-items-center">
+          <div class="col-lg-6 text-start">
+            <h1 class="display-1 fw-bold text-dark-custom mb-4" data-aos="text-reveal-left" data-aos-duration="1500"
+              data-aos-easing="cubic-bezier(.17,.67,.83,.67)" style="color: var(--text-dark) !important;">
+              Сіздің қаржылық <br> болашағыңыз, жеңілдетілген.
+            </h1>
+            <p class="fs-4 mb-5 text-dark-custom" data-aos="fade-up" data-aos-delay="500">
+              Сенім. Қолдау. Ашықтық. Novobanco өмірлік жобаларыңызды, қаржыландырудан бастап арманыңызды жүзеге асыруға дейін, нақтылау үшін осында.
+            </p>
+            <a href="#projets" class="btn btn-custom btn-lg" data-aos="fade-up" data-aos-delay="700">
+              Шешімдерімізді қараңыз
+            </a>
+          </div>
+          <div class="col-lg-6 text-center position-relative mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="1000">
+            <img src="images1.jpg" alt="Couple heureux pointant du doigt l'avenir" class="img-fluid rounded shadow-lg section-image" style="max-height: 500px;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="engagement" class="section-padding bg-light-bg">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+            <img src="images2.jpg" alt="Femme d'affaires et homme souriant devant une tablette" class="img-fluid section-image shadow">
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="display-4 fw-bold mb-4">
+              <i class="fas fa-handshake me-2" style="color: var(--primary-color);"></i>
+              Міндеттемелеріміз: Сенім, Қолдау, Ашықтық.
+            </h2>
+            <p class="fs-5 text-muted mb-4">
+              Novobanco-да біз өзара **сенімге** негізделген ұзақ мерзімді қарым-қатынас құрамыз. Біз сізге мақсаттарыңызға жету үшін қажетті **қолдауды** көрсетеміз және ұсыныстарымызда толық **ашықтыққа** кепілдік береміз.
+            </p>
+            <p class="text-muted">
+              Біз — адамгершілікті банкпіз, сіз өмірлік жобаларыңызға назар аудара алуыңыз үшін қаржы әлемін жеңілдетуге арналғанбыз.
+            </p>
+            <a href="#" class="text-decoration-none fw-bold" style="color: var(--primary-color);">Философиямызды білу <i class="fas fa-arrow-right ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projets" class="section-padding bg-light-bg-alt">
+      <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+          <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-left">
+            <img src="images4.jpg" alt="Femme d'affaires souriante vous invitant" class="img-fluid section-image shadow">
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="display-4 fw-bold mb-4">
+              <i class="fas fa-lightbulb me-2" style="color: var(--primary-color);"></i>
+              Жобаларыңыз үшін нақты мүмкіндіктер.
+            </h2>
+            <p class="fs-5 text-muted mb-4">
+              Өмірлік жобаңыз, инвестицияңыз немесе қаржыландыру қажеттілігіңіз болса да, Novobanco жеке қолдаумен бейімделген шешімдер ұсынады. **Біз сіздің амбицияларыңызға сенеміз!**
+            </p>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <h5 class="fw-bold" style="color: var(--primary-color);">Оңай Қаржыландыру</h5>
+                <p class="text-muted small">Идеяларыңызды күтпей жүзеге асыру үшін жылдам процестер.</p>
+              </div>
+              <div class="col-md-6 mb-3">
+                <h5 class="fw-bold" style="color: var(--primary-color);">Сенімді Инвестиция</h5>
+                <p class="text-muted small">Байлығыңызды арттыру үшін сарапшылардың кеңестері.</p>
+              </div>
+            </div>
+            <a href="#" class="btn btn-custom mt-3">Барлық қызметтерімізді көру</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="credit" class="section-padding" style="background-color: var(--primary-color);">
+      <div class="container text-center">
+        <h2 class="display-3 fw-bold mb-5 text-dark-custom" data-aos="fade-down">
+          Сіздің ипотекалық несиеңіз, қарапайым және тыныш.
+        </h2>
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="200">
+            <img src="images3.jpg" alt="Femme sautant de joie dans un bureau lumineux" class="img-fluid section-image shadow-lg">
+          </div>
+          <div class="col-lg-6 text-start" data-aos="fade-left" data-aos-delay="400">
+            <p class="fs-4 mb-4 text-dark-custom">
+              Меншікке қол жеткізу немесе жаңа инвестиция туралы арманыңызды жүзеге асырыңыз. Арнайы ұсынысымыздың арқасында аз алаңдаушылық, көп тыныштық.
+            </p>
+            <div class="rate-block">
+              <p class="text-dark-custom mb-1 fw-bold fs-5">Бастапқы жылдық номиналды пайыздық мөлшерлеме</p>
+              <p class="rate-text">2%</p>
+              <p class="text-dark-custom small mb-0 mt-3">
+                * Жылдық номиналды пайыздық мөлшерлеме 2%. ЖІПМ, сомалар, шарттар және мерзімдер әртүрлі. Агенттіктегі жалпы шарттарды қараңыз. Novobanco тіркелген несие делдалы болып табылады.
+              </p>
+            </div>
+            <a href="#contact" class="btn btn-custom btn-lg mt-4">Ипотекалық несиемді есептеу</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact" class="section-padding bg-light-bg">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 text-center text-lg-start" data-aos="fade-up">
+            <h2 class="display-4 fw-bold mb-4">
+              <i class="fas fa-comment-dots me-2" style="color: var(--primary-color);"></i>
+              Сұрақтарыңыз бар ма? Бізбен байланысыңыз!
+            </h2>
+            <p class="fs-5 text-muted mb-4">
+              Біздің командамыз сізге әрқашан көмектесуге дайын. Кез келген ақпарат немесе көмек үшін бізге хабарласудан тартынбаңыз.
+            </p>
+            <div class="d-flex flex-column gap-3 mb-5">
+              <a href="https://wa.me/message/TYX5EKESHR7NM1" target="_blank" class="d-flex align-items-center text-decoration-none" style="color: inherit;">
+                <i class="fab fa-whatsapp fs-3 me-3" style="color: var(--primary-color);"></i>
+                <span class="fs-5 fw-bold text-muted">+351 961 195 354 (Whatsapp)</span>
+              </a>
+              <a href="mailto:Nnovobanki@gmail.com" class="d-flex align-items-center text-decoration-none" style="color: inherit;">
+                <i class="fas fa-envelope fs-3 me-3" style="color: var(--primary-color);"></i>
+                <span class="fs-5 fw-bold text-muted">Nnovobanki@gmail.com</span>
+              </a>
+            </div>
+            <a href="mailto:Nnovobanki@gmail.com" class="btn btn-custom btn-lg">Бізге электрондық хат жіберу</a>
+          </div>
+          <div class="col-lg-6 mt-5 mt-lg-0 text-center" data-aos="fade-left" data-aos-delay="300">
+            <i class="fas fa-headphones-alt display-1" style="color: var(--primary-color);"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pt-5 pb-4">
+    <div class="container">
+      <div class="row justify-content-between mb-4">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <a class="navbar-brand fs-3 text-dark-custom" href="index.html">
+            <span style="font-family: 'Syne', sans-serif; font-weight: 800;">novobanco</span>
+          </a>
+          <p class="text-dark-custom mt-3 small">
+            Болашақ банкі. Барлық жобаларыңыз үшін қарапайымдылық, ашықтық және қолдау.
+          </p>
+        </div>
+
+        <div class="col-md-2">
+          <h5 class="fw-bold text-dark-custom">Қызметтер</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#credit" class="footer-link">Ипотекалық Несие</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">Шоттар мен Карталар</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">Инвестициялар</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <h5 class="fw-bold text-dark-custom">Заңды Ақпарат</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="footer-link">Заңды Ескертулер</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">Құпиялылық Саясаты</a></li>
+            <li class="mb-2"><a href="#contact" class="footer-link">Байланыс</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <h5 class="fw-bold text-dark-custom">Бізбен Байланысу</h5>
+          <p class="text-dark-custom mb-3 small">
+            Жобаларыңыз туралы айтыңыз, біз оларды жүзеге асыру үшін осындамыз.
+          </p>
+          <p class="text-dark-custom fst-italic fs-6"><a href="mailto:Nnovobanki@gmail.com"
+              class="text-dark-custom text-decoration-none footer-link">Nnovobanki@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="border-top border-light-subtle pt-4">
+        <p class="text-dark-custom text-center small">
+          ©2025 Novobanco. Барлық құқықтар қорғалған.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Initialisation d'AOS
+    AOS.init({
+      once: true,
+      duration: 1200,
+    });
+  </script>
+</body>
+
+</html>
