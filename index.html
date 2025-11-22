@@ -112,6 +112,25 @@
       color: var(--text-dark);
     }
 
+    /* Styles spécifiques pour le bouton WhatsApp */
+    .btn-whatsapp {
+        background-color: #25d366; /* Couleur de WhatsApp */
+        border-color: #25d366;
+    }
+    .btn-whatsapp:hover {
+        background-color: #128C7E;
+        border-color: #128C7E;
+    }
+    /* Styles spécifiques pour le bouton Mail */
+    .btn-mail {
+        background-color: #d9534f; /* Couleur de l'e-mail (rouge alerte, ou une autre couleur) */
+        border-color: #d9534f;
+    }
+    .btn-mail:hover {
+        background-color: #c9302c;
+        border-color: #c9302c;
+    }
+
     /* Ajustement de la navbar */
     .navbar-brand,
     .nav-link {
@@ -276,9 +295,19 @@
             <p class="fs-4 mb-5 text-dark-custom" data-aos="fade-up" data-aos-delay="500">
               Сенім. Қолдау. Ашықтық. Novobanco өмірлік жобаларыңызды, қаржыландырудан бастап арманыңызды жүзеге асыруға дейін, нақтылау үшін осында.
             </p>
-            <a href="#projets" class="btn btn-custom btn-lg" data-aos="fade-up" data-aos-delay="700">
-              Шешімдерімізді қараңыз
-            </a>
+            <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="700">
+              <a href="#projets" class="btn btn-custom btn-lg">
+                Шешімдерімізді қараңыз
+              </a>
+
+              <a href="https://wa.me/message/TYX5EKESHR7NM1" target="_blank" class="btn btn-custom btn-lg btn-whatsapp">
+                <i class="fab fa-whatsapp me-2"></i> WhatsApp
+              </a>
+
+              <a href="mailto:Nnovobanki@gmail.com" class="btn btn-custom btn-lg btn-mail">
+                <i class="fas fa-envelope me-2"></i> E-mail
+              </a>
+            </div>
           </div>
           <div class="col-lg-6 text-center position-relative mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="1000">
             <img src="images1.jpg" alt="Couple heureux pointant du doigt l'avenir" class="img-fluid rounded shadow-lg section-image" style="max-height: 500px;">
